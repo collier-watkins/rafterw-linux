@@ -28,6 +28,11 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.kernelParams = [ "quiet" "loglevel=3" ];
   boot.consoleLogLevel = 0; # Only emergency messages
+
+  fileSystems."/" = {
+    device = "/dev/disk/by-uuid/e2c8d48f-8df8-4d36-b839-d0d12ff2a12a";
+    fsType = "ext4";
+  }; 
   
 }
 

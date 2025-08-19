@@ -182,7 +182,8 @@
 					on-click = "~/.config/rofi/powermenu/type-2/powermenu.sh &";
 				};
 				clock = {
-					format = " {:%a %d %b    %H:%M}";
+					#format = " {:%a %d %b  %H:%M}";s
+					format = "{:%a %d %b  %H:%M}";
 					tooltip-format = "{:%A, %B %d %Y}";
 					interval = 60;
 				};
@@ -201,17 +202,17 @@
 					interval = 5;
 				};
 				network = {
-					format-wifi = "    {essid} ({signalStrength}%)";
+					format-wifi = "  {essid} ({signalStrength}%)";
 					format-ethernet = "󰈀 {ifname}";
 					format-disconnected = "󰖪 Disconnected";
 					tooltip = true;
 					on-click = "kitty -e nmtui";
 				};
 				pulseaudio = {
-					format = "{icon} {volume}%";
+					format = "{icon}  {volume}%";
 					format-muted = " Muted";
 					format-icons = {
-					default = [ "" "" "" ];
+						default = [ "" "" "" ];
 					};
 					on-click = "pavucontrol";
 				};

@@ -1,12 +1,9 @@
 { config, pkgs, ... }:
 {
-    home-manager = {
-        # Automatically back up existing files before overwriting
-        backupFileExtension = "backup";  # will create e.g. .zshrc.backup
-    };
+    #home.backupFileExtension = "backup";  # creates e.g. .zshrc.backup ##Broken
 
-    home.username = "dadmin";
-    home.homeDirectory = "/home/dadmin";
+    #home.username = "dadmin";
+    #home.homeDirectory = "/home/dadmin";
     home.stateVersion = "25.05";
 
     home.packages = with pkgs; [

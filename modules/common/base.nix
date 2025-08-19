@@ -16,6 +16,13 @@
         extraGroups = [ "networkmanager" "wheel" "dadmin"];
     };
 
+    users.users.collier = {
+        password = "howdy";
+        isNormalUser = true;
+        description = "Collier";
+        extraGroups = [ "networkmanager" "wheel" "Collier"];
+    };
+
     # Networking
     networking.networkmanager.enable = true;
     networking.hostName = "rafter-w-os";
@@ -50,14 +57,14 @@
 
     # Enhanced TTY login message with colors and ASCII art
     environment.etc."issue".text = ''
-        \e[1;32m   _      _      _   
+        \e[1;32m _      _      _   
         (_)   _(_)_   (_)  
         (_)  (_) (_)  (_)  
         (_) (_) _ (_) (_)  
         (_)   _(_)_   (_)  
         (_)  (_) (_)  (_)  
         (_)_(_)   (_)_(_)  
-            (_)       (_)    
+          (_)       (_)    
         \e[0m
     '';
 }

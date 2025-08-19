@@ -21,7 +21,14 @@
               home-manager.useUserPackages = true;
 
               # Load base home config + edition-specific home config
-              home-manager.users.collier = {
+              home-manager.users.dadmin = {
+                imports = [
+                  ./home/common/base-home.nix
+                  ./home/editions/${edition}-home.nix
+                ];
+              };
+
+               home-manager.users.collier = {
                 imports = [
                   ./home/common/base-home.nix
                   ./home/editions/${edition}-home.nix
