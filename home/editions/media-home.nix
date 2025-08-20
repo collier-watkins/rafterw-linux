@@ -14,8 +14,7 @@ let
     columns: 4;
     show-icons: true;
     icon-theme: Papirus;
-    }
-  '';
+    }'';
 in
 {
 	imports = [
