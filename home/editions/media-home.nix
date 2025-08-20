@@ -27,7 +27,7 @@
     };
   };
 
-  wayland.windowManager.sway.config.menu = lib.mkForce "rofi -show drun -theme ${toString rofiTheme}";
+  wayland.windowManager.sway.config.menu = lib.mkForce "rofi -show drun";
 
   # Custom .desktop files
   home.file.".local/share/applications/custom".source = ../configs/media-edition-desktop-apps;
