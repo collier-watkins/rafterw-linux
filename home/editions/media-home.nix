@@ -25,11 +25,12 @@ in
 		export GTK_THEME=Adwaita-dark
 		export GTK_ICON_THEME=Papirus
 		export XDG_DATA_DIRS="$HOME/.nix-profile/share:/run/current-system/sw/share:$XDG_DATA_DIRS"
-		exec fuzzel --config "$HOME/.config/fuzzel/config" --show drun
+		exec fuzzel --show drun
     '';
     executable = true;
   };
 
+	# Fuzzel configuration
 	# Fuzzel configuration
 programs.fuzzel = {
   enable = true;
@@ -52,7 +53,7 @@ programs.fuzzel = {
 };
 
 
-	wayland.windowManager.sway.config.menu = lib.mkForce "fuzzel";
+	wayland.windowManager.sway.config.menu = lib.mkForce "$HOME/.config/fuzzel/run-fuzzel.sh";
 
     # Symlink your repo directory of .desktop files
   #home.file.".local/share/fuzzel-apps".source = ../configs/media-edition-desktop-apps;
