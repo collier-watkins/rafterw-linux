@@ -306,7 +306,7 @@ in
 
 		# Loop: pick random wallpaper every 5 minutes with fade
 		while true; do
-			IMG=$(find "$DIR" -type f \( -iname "*.jpg" -o -iname "*.png" \) | shuf -n1)
+			IMG=$(find -L "$DIR" -type f \( -iname "*.jpg" -o -iname "*.png" \) | shuf -n1)
 			swww img "$IMG" --transition-type fade --transition-duration 3
 			sleep 300
 		done
