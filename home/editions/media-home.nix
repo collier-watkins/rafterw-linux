@@ -2,8 +2,8 @@
 let
  rofiTheme = pkgs.writeText "rofi-theme" ''
 * {
-  background: #282a36ff;
-  foreground: #FF00FFFF;
+  background-color: #282a36ff;
+  foreground-color: #ff00ffff;
 }
 '';
 in
