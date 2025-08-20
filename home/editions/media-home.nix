@@ -34,7 +34,6 @@ in
  programs.rofi = {
     enable = true;
     extraConfig = ''
-      # Use our custom theme
       theme: ${rofiTheme};
       show-icons: true;
       icon-theme: Papirus;
