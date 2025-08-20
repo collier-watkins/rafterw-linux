@@ -9,5 +9,5 @@
     separator-color: #00ff00;
     element-border-radius: 16px;
     element-spacing: 16px;
-    scrollbar-color: #ff69b4 #8a2be2;
+    scrollbar-color: #ff69b4;
 }
