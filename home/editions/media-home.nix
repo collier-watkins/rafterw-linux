@@ -35,15 +35,15 @@ in
     text = ''
       [launcher]
       show-icons = true
-      icon-size = 32
+      icon-size = 64
       desktop-files-path = ${lib.concatStringsSep ":" fuzzelDesktopPaths}
       max-items = 50
 
       [appearance]
-    background-color = #1e1e2e
-    foreground-color = #cdd6f4
-    layout = grid
-    columns = 4
+      background-color = #1e1e2e
+      foreground-color = #cdd6f4
+      layout = grid
+      columns = 4
     '';
   };
 
