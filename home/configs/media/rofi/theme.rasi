@@ -23,8 +23,8 @@ window {
     transparency: "real";
     location: center;
     anchor: center;
-    width: 800px;
-    height: 600px;
+    width: 1000px;
+    height: 700px;
     border: 2px;
     border-radius: 12px;
     background-color: @background-color;
@@ -34,7 +34,7 @@ window {
 inputbar {
     children: [ prompt, entry ];
     spacing: 10px;
-    padding: 10px;
+    padding: 12px;
     border: 0px 0px 1px 0px;
     border-color: @border-color;
 }
@@ -51,19 +51,22 @@ entry {
     text-color: @text-color;
 }
 
-/* List view */
+/* List view (Grid layout) */
 listview {
-    spacing: 5px;
-    padding: 10px;
-    columns: 1;
-    lines: 10;
+    layout: horizontal;
+    columns: 4; /* 4 icons per row */
+    lines: 3; /* 3 rows */
+    spacing: 10px;
+    padding: 15px;
     fixed-height: true;
 }
 
 element {
-    padding: 8px;
-    border-radius: 8px;
+    orientation: vertical; /* Icon above text */
+    padding: 10px;
+    border-radius: 10px;
     text-color: @text-color;
+    text-align: center;
 }
 
 element selected {
@@ -76,10 +79,11 @@ element urgent {
 }
 
 element-icon {
-    size: 24px;
-    padding: 0 8px 0 0;
+    size: 64px; /* Larger icons */
+    padding: 0 0 8px 0; /* Space below icon */
 }
 
 element-text {
     text-color: inherit;
+    horizontal-align: 0.5; /* Center text */
 }
