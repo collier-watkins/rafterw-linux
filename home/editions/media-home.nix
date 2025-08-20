@@ -14,8 +14,7 @@
 	wayland.windowManager.sway.config.menu = lib.mkForce "fuzzel";
 
     # Symlink your repo directory of .desktop files
-  home.file.".local/share/fuzzel-apps".source =
-    ./media-edition-desktop-apps;
+  home.file.".local/share/fuzzel-apps".source = ./media-edition-desktop-apps;
 
   # Prepend it so it overrides system entries
   home.sessionVariables = {
