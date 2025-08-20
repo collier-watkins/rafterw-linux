@@ -25,8 +25,7 @@ in
 		export GTK_THEME=Adwaita-dark
 		export GTK_ICON_THEME=Papirus
 		export XDG_DATA_DIRS="$HOME/.nix-profile/share:/run/current-system/sw/share:$XDG_DATA_DIRS"
-		export FUZSEL_CONFIG="$HOME/.config/fuzzel/config"
-		exec fuzzel --show drun
+		exec fuzzel --config "$HOME/.config/fuzzel/config" --show drun
     '';
     executable = true;
   };
