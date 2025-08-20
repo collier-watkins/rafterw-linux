@@ -1,4 +1,7 @@
 { config, pkgs, lib, ... }:
+let
+  backgroundsDir = builtins.toString ./../../backgrounds;
+in
 {
 	# Add more laptop-specific dotfiles here
 
@@ -54,6 +57,18 @@
 		config = {
 			startup = [
 				{ command = "swaybg -i $(find ../../backgrounds -type f | shuf -n1) -m fill"; }    #Random picture in that directory every time
+				{ command = "$HOME/.nix-profile/bin/swww-daemon &"; }
+				# Random fading wallpapers every 5 minutes
+				{ command = ''
+						$HOME/.nix-profile/bin/bash -c '
+						DIR="${backgroundsDir}"
+						while true; do
+						IMG=$(find "$DIR" -type f \( -iname "*.jpg" -o -iname "*.png" \) | shuf -n1)
+						$HOME/.nix-profile/bin/swww img "$IMG" --transition-type fade --transition-duration 3
+						sleep 300
+						done &
+						'
+					''; }
 			];
 			bars = [
 				{ command = "${pkgs.waybar}/bin/waybar"; }
