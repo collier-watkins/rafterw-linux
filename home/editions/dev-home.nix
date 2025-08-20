@@ -1,6 +1,10 @@
 { config, pkgs, lib, ... }:
 let
-  backgroundsDir = ./../../backgrounds;
+	backgroundsDir = ./../../backgrounds;
+	fuzzelDesktopPaths = [
+		"/run/current-system/sw/share/applications"
+		"~/.nix-profile/share/applications"
+	];
 in
 {
 	# Add more laptop-specific dotfiles here
@@ -29,16 +33,19 @@ in
     XDG_THEME = "dark";
   };
 
-  # Fuzzel configuration
-home.file.".config/fuzzel/config" = {
-  text = ''
-    [launcher]
-    show-icons = true
-    icon-size = 32
-    desktop-files-path = /run/current-system/sw/share/applications/:~/.nix-profile/share/applications/
-    max-items = 50
-  '';
-};
+	# Symlink Papirus to ~/.icons for fuzzel
+	home.file.".icons/Papirus".source = "${pkgs.papirus-icon-theme}/share/icons/Papirus";
+
+	# Fuzzel configuration
+	home.file.".config/fuzzel/config" = {
+		text = ''
+			[launcher]
+			show-icons = true
+			icon-size = 32
+			desktop-files-path = /run/current-system/sw/share/applications/:~/.nix-profile/share/applications/
+			max-items = 50
+		'';
+	};
 
 
 	xsession.enable = true;
