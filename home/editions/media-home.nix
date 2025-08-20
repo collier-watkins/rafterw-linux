@@ -1,12 +1,4 @@
 { config, pkgs, lib, ... }:
-let
- rofiTheme = pkgs.writeText "rofi-theme" ''
-* {
-  background-color: #282a36ff;
-  foreground-color: #ff00ffff;
-}
-'';
-in
 {
 	imports = [
 		./dev-home.nix
@@ -28,7 +20,12 @@ in
 		icon-theme = "Papirus";
 	};
   };
-  home.file.".config/rofi/config.rasi".source = rofiTheme;
+  home.file.".config/rofi/config.rasi".source = ''
+* {
+  background-color: #282a36ff;
+  foreground-color: #ff00ffff;
+}
+'';
 
 
 	wayland.windowManager.sway.config.menu = lib.mkForce "rofi -show drun";
