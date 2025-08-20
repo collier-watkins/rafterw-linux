@@ -15,7 +15,7 @@
 
  programs.rofi = {
     enable = true;
-	theme = rofiTheme
+	theme = rofiTheme;
     extraConfig = {
 		show-icons = true;
 		icon-theme = "Papirus";
