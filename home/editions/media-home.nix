@@ -1,13 +1,6 @@
 { config, pkgs, lib, ... }:
 
-let
-  rofiTheme = pkgs.writeText "rofi-theme" ''
-    * {
-      background-color: #282a36;
-      foreground-color: #f8f8f2;
-    }
-  '';
-in {
+{
   imports = [
     ./dev-home.nix
   ];
@@ -22,7 +15,12 @@ in {
 
   programs.rofi = {
     enable = true;
-    theme = toString rofiTheme; # ✅ convert derivation to string path
+    theme = ''
+    * {
+      background-color: #282a36;
+      foreground-color: #f8f8f2;
+    }
+  '';
     extraConfig = {
       show-icons = true;
       icon-theme = "Papirus";
