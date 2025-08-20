@@ -2,18 +2,18 @@
 let
  rofiTheme = pkgs.writeText "rofi-theme" ''
     * {
-        background:      #282a36ff;
-        foreground:      #f8f8f2ff;
-        selected:        #44475add;
-        selected_foreground: #f8f8f2ff;
-        border:          #bd93f9ff;
-        icon-theme:      Papirus;
-        show-icons:      true;
-        padding:         10;
-        element-width:   150;
-        element-height:  50;
-        lines:           4;   # number of rows visible
-        columns:         4;   # number of columns (grid)
+   background: #282a36ff;
+    foreground: #f8f8f2ff;
+    selected-background: #44475add;
+    selected-foreground: #f8f8f2ff;
+    border: #bd93f9ff;
+    padding: 10;
+    element-width: 150;
+    element-height: 50;
+    lines: 4;
+    columns: 4;
+    show-icons: true;
+    icon-theme: Papirus;
     }
   '';
 in
