@@ -3,7 +3,7 @@ let
  rofiTheme = pkgs.writeText "rofi-theme" ''
 * {
   background: #282a36ff;
-  foreground: #f8f8f2ff;
+  foreground: #FF00FFFF;
 }
 '';
 in
