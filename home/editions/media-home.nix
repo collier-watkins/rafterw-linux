@@ -25,7 +25,7 @@
   wayland.windowManager.sway.config.menu = lib.mkForce "rofi -show drun -theme ~/.config/rofi/theme.rasi";
 
   # Custom .desktop files
-  home.file.".local/share/applications/custom".source = ../configs/media-edition/desktop-items;
+  home.file.".local/share/applications/custom".source = ../configs/media/desktop-items;
 
   home.sessionVariables = {
     XDG_DATA_DIRS =
