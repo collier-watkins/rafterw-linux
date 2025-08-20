@@ -29,6 +29,6 @@
 
   home.sessionVariables = {
     XDG_DATA_DIRS =
-      "${config.home.homeDirectory}/.local/share/applications/custom:${config.xdg.dataHome}:${pkgs.xdg-utils}/share";
+      "${config.home.homeDirectory}/.local/share/applications/custom";
   };
 }
