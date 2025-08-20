@@ -26,9 +26,9 @@ in
     extraConfig = {
 		show-icons = true;
 		icon-theme = "Papirus";
-		terminal = "foot";  # optional
 	};
   };
+  home.file.".config/rofi/config.rasi".source = rofiTheme;
 
 
 	wayland.windowManager.sway.config.menu = lib.mkForce "rofi -show drun -theme ${rofiTheme}";
