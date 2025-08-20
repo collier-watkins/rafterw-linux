@@ -119,6 +119,10 @@
 				"${modifier}+7" = "workspace number 7";
 				"${modifier}+8" = "workspace number 8";
 				"${modifier}+9" = "workspace number 9";
+				# Add modifier+Tab for next workspace
+  				"${modifier}+Tab" = "workspace next";
+				# (optional) Shift+Tab to go backwards
+				"${modifier}+Shift+Tab" = "workspace prev";
 
 				"${modifier}+Shift+1" = "move container to workspace number 1; workspace number 1";
 				"${modifier}+Shift+2" = "move container to workspace number 2; workspace number 2";

@@ -20,7 +20,7 @@
         password = "howdy";
         isNormalUser = true;
         description = "Collier";
-        extraGroups = [ "networkmanager" "wheel" "Collier"];
+        extraGroups = [ "networkmanager" "wheel" "collier"];
     };
 
     # Networking
@@ -37,6 +37,7 @@
 
     #System-wide packages
     environment.systemPackages = with pkgs; [
+        cowsay
         networkmanager # Neccessary?
         git
         wget
@@ -50,6 +51,7 @@
         fd
         htop
         lshw
+        speedtest-cli
     ];
 
     programs.zsh.enable = true;

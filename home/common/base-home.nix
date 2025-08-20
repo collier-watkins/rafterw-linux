@@ -1,9 +1,5 @@
 { config, pkgs, ... }:
 {
-    #home.backupFileExtension = "backup";  # creates e.g. .zshrc.backup ##Broken
-
-    #home.username = "dadmin";
-    #home.homeDirectory = "/home/dadmin";
     home.stateVersion = "25.05";
 
     home.packages = with pkgs; [
@@ -53,6 +49,9 @@
             }
         '';
     };
+
+    # Basic symlink for NeoVIM configs
+    home.file.".config/nvim".source = ../configs/nvim;
 
     programs.htop = {
         enable = true;
