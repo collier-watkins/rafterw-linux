@@ -33,17 +33,15 @@ in
 	# Fuzzel configuration
  home.file.".config/fuzzel/config" = {
     text = ''
-      [launcher]
-      show-icons = true
-      icon-size = 64
-      desktop-files-path = ${lib.concatStringsSep ":" fuzzelDesktopPaths}
-      max-items = 50
+		show-icons = true
+		icon-size = 32
+		desktop-files-path = /home/collier/.config/fuzzel/custom-apps:/run/current-system/sw/share/applications
+		max-items = 50
+		background-color = #1e1e2e
+		foreground-color = #cdd6f4
+		layout = grid
+		columns = 4
 
-      [appearance]
-      background-color = #1e1e2e
-      foreground-color = #cdd6f4
-      layout = grid
-      columns = 4
     '';
   };
 
