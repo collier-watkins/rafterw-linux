@@ -22,10 +22,11 @@ in
   home.file.".config/fuzzel/run-fuzzel.sh" = {
     text = ''
       #!/usr/bin/env bash
-      export GTK_THEME=Adwaita-dark
-      export GTK_ICON_THEME=Papirus
-      export XDG_DATA_DIRS="$HOME/.nix-profile/share:/run/current-system/sw/share:$XDG_DATA_DIRS"
-      exec fuzzel --show drun
+		export GTK_THEME=Adwaita-dark
+		export GTK_ICON_THEME=Papirus
+		export XDG_DATA_DIRS="$HOME/.nix-profile/share:/run/current-system/sw/share:$XDG_DATA_DIRS"
+		export FUZSEL_CONFIG="$HOME/.config/fuzzel/config"
+		exec fuzzel --show drun
     '';
     executable = true;
   };
