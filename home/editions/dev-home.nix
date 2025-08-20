@@ -1,4 +1,7 @@
 { config, pkgs, lib, ... }:
+let
+  backgroundsDir = ./../../backgrounds;
+in
 {
 	# Add more laptop-specific dotfiles here
 
@@ -26,6 +29,9 @@
 	#	XCURSOR_SIZE = "24";
 	#	WLR_DPI = "96";
 	};
+
+	 home.file.".config/sway/backgrounds".source = backgroundsDir;
+
 
 	xsession.enable = true;
 
