@@ -14,7 +14,6 @@ in
 		material-cursors
 		swww #Sway wallpaper swicher
 		adwaita-icon-theme
-    	firacode
 	];
 
 	home.sessionVariables = {
@@ -307,7 +306,6 @@ in
       [Settings]
       gtk-theme-name = Adwaita-dark
       gtk-icon-theme-name = Papirus
-      gtk-font-name = "FiraCode 12"
     '';
   };
 
