@@ -22,17 +22,17 @@ in {
 
   programs.rofi = {
     enable = true;
-    theme = rofiTheme;
+    theme = toString rofiTheme; # ✅ convert derivation to string path
     extraConfig = {
       show-icons = true;
       icon-theme = "Papirus";
     };
   };
 
-  wayland.windowManager.sway.config.menu = lib.mkForce "rofi -show drun -theme ${rofiTheme}";
+  wayland.windowManager.sway.config.menu = lib.mkForce "rofi -show drun -theme ${toString rofiTheme}";
 
-  # If you want custom desktop entries for rofi:
-  # home.file.".local/share/applications/custom".source = ../configs/media-edition-desktop-apps;
+  # Custom .desktop files
+  home.file.".local/share/applications/custom".source = ../configs/media-edition-desktop-apps;
 
   home.sessionVariables = {
     XDG_DATA_DIRS = "${config.home.homeDirectory}/.local/share/applications/custom:${config.xdg.dataHome}:${pkgs.xdg-utils}/share";
