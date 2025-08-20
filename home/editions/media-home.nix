@@ -20,7 +20,7 @@
       show-icons = true;
       icon-theme = "Papirus";
       # Add filter to exclude Rofi Theme Selector
-      drun-match = "!Rofi Theme Selector";
+      #drun-match = "!Rofi Theme Selector";
     };
   };
 
