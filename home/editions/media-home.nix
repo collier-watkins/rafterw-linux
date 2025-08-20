@@ -13,6 +13,12 @@
 	# Symlink Papirus to ~/.icons for fuzzel
 	home.file.".icons/Papirus".source = "${pkgs.papirus-icon-theme}/share/icons/Papirus";
 
+  rofiTheme = pkgs.writeText "rofi-theme" ''
+* {
+    background-color: #282a36;
+    foreground-color: #f8f8f2;
+}
+'';
  programs.rofi = {
     enable = true;
 	theme = rofiTheme;
@@ -21,12 +27,6 @@
 		icon-theme = "Papirus";
 	};
   };
-  rofiTheme = pkgs.writeText "rofi-theme" ''
-* {
-    background-color: #282a36;
-    foreground-color: #f8f8f2;
-}
-'';
 
 
 	wayland.windowManager.sway.config.menu = lib.mkForce "rofi -show drun -theme ${rofiTheme}";
