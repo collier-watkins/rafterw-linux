@@ -1,8 +1,0 @@
-[Desktop Entry]
-Name=Home Assistant
-Comment=Open ha.rafterw.io in Ungoogled Chromium (App Mode)
-Exec=chromium --app=https://ha.rafterw.io
-Icon=chromium
-Terminal=false
-Type=Application
-Categories=Network;WebBrowser;

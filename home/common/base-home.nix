@@ -51,7 +51,7 @@
     };
 
     # Basic symlink for NeoVIM configs
-    home.file.".config/nvim".source = ../configs/nvim;
+    home.file.".config/nvim".source = ../configs/base/nvim;
 
     programs.htop = {
         enable = true;
