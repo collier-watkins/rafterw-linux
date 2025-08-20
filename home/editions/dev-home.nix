@@ -36,16 +36,32 @@ in
 	# Symlink Papirus to ~/.icons for fuzzel
 	home.file.".icons/Papirus".source = "${pkgs.papirus-icon-theme}/share/icons/Papirus";
 
+	  # Fuzzel wrapper script to ensure correct GTK env
+  home.file.".config/fuzzel/run-fuzzel.sh" = {
+    text = ''
+      #!/usr/bin/env bash
+      export GTK_THEME=Adwaita-dark
+      export GTK_ICON_THEME=Papirus
+      export XDG_DATA_DIRS="$HOME/.nix-profile/share:/run/current-system/sw/share:$XDG_DATA_DIRS"
+      exec fuzzel --show drun
+    '';
+    executable = true;
+  };
+
 	# Fuzzel configuration
-	home.file.".config/fuzzel/config" = {
-		text = ''
-			[launcher]
-			show-icons = true
-			icon-size = 32
-			desktop-files-path = /run/current-system/sw/share/applications/:~/.nix-profile/share/applications/
-			max-items = 50
-		'';
-	};
+ home.file.".config/fuzzel/config" = {
+    text = ''
+      [launcher]
+      show-icons = true
+      icon-size = 32
+      desktop-files-path = ${lib.concatStringsSep ":" fuzzelDesktopPaths}
+      max-items = 50
+
+      [appearance]
+      background-color = #1e1e2e
+      foreground-color = #cdd6f4
+    '';
+  };
 
 
 	xsession.enable = true;
@@ -100,7 +116,7 @@ in
 			};
 			modifier = "Mod4";
 			terminal = "kitty";
-			menu = "fuzzel --show drun";
+			menu = "$HOME/.config/fuzzel/run-fuzzel.sh";
 			
 			keybindings = let
 			modifier = config.wayland.windowManager.sway.config.modifier;
@@ -305,15 +321,6 @@ in
 			#battery.critical {
 				color: #f38ba8;
 			}
-		'';
-	};
-
-	# Wofi config
-	home.file.".config/wofi/config" = {
-		text = ''
-		[launcher]
-		show-icons = true
-		icon-size = 24
 		'';
 	};
 
