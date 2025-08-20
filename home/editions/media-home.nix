@@ -39,6 +39,8 @@ programs.fuzzel = {
       font = "monospace:size=12";
       dpi-aware = true;
       terminal = "${pkgs.foot}/bin/foot";
+	  layout = "grid";   # Use a grid instead of a list
+      columns = 4;       # Number of columns
     };
     colors = {
       background = "#282a36ff";
