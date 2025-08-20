@@ -30,15 +30,16 @@ in
   };
 
   # Fuzzel configuration
-  home.file.".config/fuzzel/config" = {
-    text = ''
-      [launcher]
-      show-icons = true
-      icon-size = 32
-      desktop-files-path = /usr/share/applications/:~/.local/share/applications/
-      max-items = 50
-    '';
-  };
+home.file.".config/fuzzel/config" = {
+  text = ''
+    [launcher]
+    show-icons = true
+    icon-size = 32
+    desktop-files-path = /run/current-system/sw/share/applications/:~/.nix-profile/share/applications/
+    max-items = 50
+  '';
+};
+
 
 	xsession.enable = true;
 
