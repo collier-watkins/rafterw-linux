@@ -40,8 +40,10 @@ in
       max-items = 50
 
       [appearance]
-      background-color = #1e1e2e
-      foreground-color = #FF00FF
+    background-color = #1e1e2e
+    foreground-color = #cdd6f4
+    layout = grid
+    columns = 4
     '';
   };
 
