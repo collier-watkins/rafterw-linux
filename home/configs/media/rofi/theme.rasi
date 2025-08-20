@@ -1,13 +1,9 @@
 * {
-    background-color: #ff00ff;
-    foreground-color: #00ffff;
-    border-color: #ffff00;
-    selected-background-color: #ff4500;
-    selected-foreground-color: #ffffff;
+    background: #ff00ff;
+    foreground: #00ffff;
     border: 4px;
+    border-color: #ffff00;
+    selected-background: #ff4500;
+    selected-foreground: #ffffff;
     padding: 12px;
-    separator-color: #00ff00;
-    element-border-radius: 16px;
-    element-spacing: 16px;
-    scrollbar-color: #ff69b4;
 }
