@@ -1,10 +1,11 @@
 { config, pkgs, lib, ... }:
 let
  rofiTheme = pkgs.writeText "rofi-theme" ''
-    * {
-		background: #282a36ff;
-		foreground: #f8f8f2ff;
-    };'';
+* {
+	background: #282a36ff;
+	foreground: #f8f8f2ff;
+}
+'';
 in
 {
 	imports = [
