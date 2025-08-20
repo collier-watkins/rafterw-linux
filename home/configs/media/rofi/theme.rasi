@@ -1,14 +1,13 @@
 * {
-    background-color: #ff00ff;            /* Neon magenta background */
-    foreground-color: #00ffff;            /* Cyan text */
-    border-color: #ffff00;                /* Yellow borders */
-    selected-background-color: #ff4500;   /* Orange-red highlight */
-    selected-foreground-color: #ffffff;   /* White text on selection */
-    font: "Comic Sans MS 14";             /* Totally over-the-top font */
-    border: 4px;                          /* Thick border */
-    padding: 12px;                        /* Extra padding */
-    separator-color: #00ff00;             /* Bright green separators */
-    element-border-radius: 16px;          /* Rounded tiles for flair */
-    element-spacing: 16px;                /* Lots of spacing between items */
-    scrollbar-color: #ff69b4 #8a2be2;     /* Hot pink scrollbar on blue-violet track */
+    background-color: #ff00ff;
+    foreground-color: #00ffff;
+    border-color: #ffff00;
+    selected-background-color: #ff4500;
+    selected-foreground-color: #ffffff;
+    border: 4px;
+    padding: 12px;
+    separator-color: #00ff00;
+    element-border-radius: 16px;
+    element-spacing: 16px;
+    scrollbar-color: #ff69b4 #8a2be2;
 }
