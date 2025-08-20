@@ -288,21 +288,27 @@
 	};
 
 	#Wallpaper switcher using swww, systemd, and a script
-	systemd.user.services.swww-wallpaper = {
-		Unit.PartOf = [ "graphical-session.target" ];
-		Unit.After = [ "graphical-session.target" ];
-		Service = {
-		ExecStart = "${pkgs.bash}/bin/bash -lc ''\
-			DIR=$HOME/../../backgrounds; \
-			pgrep -x swww-daemon >/dev/null || ${pkgs.swww}/bin/swww-daemon & sleep 1; \
-			while true; do \
-			IMG=$(find \"$DIR\" -type f \\( -iname '*.jpg' -o -iname '*.png' \\) | shuf -n1); \
-			${pkgs.swww}/bin/swww img \"$IMG\" --transition-type fade --transition-duration 3; \
-			sleep 300; \
-			done''";
-		Restart = "always";
-		};
-		Install.WantedBy = [ "graphical-session.target" ];
-	};
-  	systemd.user.startServices = true;
+	
+  home.file.".config/sway/wallpaper.sh".text = ''
+    #!/usr/bin/env bash
+    DIR="$HOME/../../backgrounds"
+    pgrep -x swww-daemon >/dev/null || swww-daemon &
+    sleep 1
+    while true; do
+      IMG=$(find "$DIR" -type f \( -iname '*.jpg' -o -iname '*.png' \) | shuf -n1)
+      swww img "$IMG" --transition-type fade --transition-duration 3
+      sleep 300
+    done
+  '';
+  home.file.".config/sway/wallpaper.sh".executable = true;
+
+  systemd.user.services.swww-wallpaper = {
+    Unit.PartOf = [ "graphical-session.target" ];
+    Unit.After = [ "graphical-session.target" ];
+    Service.ExecStart = "%h/.config/sway/wallpaper.sh";
+    Service.Restart = "always";
+    Install.WantedBy = [ "graphical-session.target" ];
+  };
+
+  systemd.user.startServices = true;
 }
