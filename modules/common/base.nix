@@ -41,6 +41,9 @@
         networkmanager # Neccessary?
         git
         wget
+        curl
+        gnugrep
+        coreutils
         zsh
         zsh-powerlevel10k
         tree

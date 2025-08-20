@@ -16,7 +16,7 @@ configuration {
     border-color: #89b4fa;
     accent-color: #89b4fa;
     urgent-color: #f38ba8;
-    selected-color: #ffffff;
+    selected-color: #b4befe;
 }
 
 window {
@@ -30,25 +30,9 @@ window {
     background-color: @background-color;
 }
 
-/* Input bar */
+/* Input bar - disabled to remove search bar */
 inputbar {
-    children: [ prompt, entry ];
-    spacing: 10px;
-    padding: 12px;
-    border: 0px 0px 1px 0px;
-    border-color: @border-color;
-}
-
-prompt {
-    padding: 8px;
-    text-color: @accent-color;
-}
-
-entry {
-    padding: 8px;
-    background-color: #313244;
-    border-radius: 8px;
-    text-color: @text-color;
+    enabled: false; /* Disables the search bar */
 }
 
 /* List view (Grid layout) */
@@ -71,7 +55,7 @@ element {
 
 element selected {
     background-color: @selected-color;
-    text-color: #ffffff;
+    text-color: @background-color;
 }
 
 element urgent {

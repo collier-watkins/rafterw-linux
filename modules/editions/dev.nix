@@ -18,7 +18,9 @@
     slurp 
     swappy
     wev #key capture tool
-
+    feh
+    qiv
+    imagemagick
     vscode
     firefox
     signal-desktop 
@@ -33,6 +35,8 @@
       export XDG_CURRENT_DESKTOP=sway
     '';
   };
+
+  programs.thunar.enable = true;
 
   # Put in laptop and media?
   hardware.graphics = {
