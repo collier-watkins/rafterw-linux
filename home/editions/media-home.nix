@@ -8,13 +8,13 @@
 	home.packages = with pkgs; [
 		vlc
 		mpv
-		fuzzel
+	#	fuzzel
 	];
 
-	wayland.windowManager.sway.config.menu = lib.mkForce "fuzzel";
+	#wayland.windowManager.sway.config.menu = lib.mkForce "fuzzel";
 
     # Symlink your repo directory of .desktop files
-  home.file.".local/share/fuzzel-apps".source = ../configs/media-edition-desktop-apps;
+  #home.file.".local/share/fuzzel-apps".source = ../configs/media-edition-desktop-apps;
 
   # Prepend it so it overrides system entries
   home.sessionVariables = {

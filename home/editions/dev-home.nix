@@ -30,9 +30,6 @@ in
 	#	WLR_DPI = "96";
 	};
 
-	 home.file.".config/sway/backgrounds".source = backgroundsDir;
-
-
 	xsession.enable = true;
 
 	programs.kitty = {
@@ -59,7 +56,6 @@ in
 		wrapperFeatures.gtk = true;
 		config = {
 			startup = [
-				#{ command = "swaybg -i $(find ../../backgrounds -type f | shuf -n1) -m fill"; }    #Random picture in that directory every time
 				{ command = "$HOME/.config/sway/background-switcher.sh"; }
 			];
 			bars = [
@@ -294,6 +290,16 @@ in
 		'';
 	};
 
+	# Wofi config
+	home.file.".config/wofi/config" = {
+		text = ''
+		[launcher]
+		show-icons = true
+		icon-size = 24
+		'';
+	};
+
+	home.file.".config/sway/backgrounds".source = backgroundsDir;	#Symlink for backgrounds
 	# Background switcher script
 	home.file.".config/sway/background-switcher.sh" = {
 		text = ''
