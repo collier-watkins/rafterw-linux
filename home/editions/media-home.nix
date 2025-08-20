@@ -33,22 +33,24 @@ in
 	# Fuzzel configuration
 programs.fuzzel = {
   enable = true;
-  settings = ''
-    [main]
-    font = "monospace:size=12"
-    dpi-aware = yes
-    terminal = foot
-
-    [colors]
-    background = #282a36ff
-    text = #f8f8f2ff
-    selection = #44475add
-    selection-text = #f8f8f2ff
-    match = #8be9fdff
-    selection-match = #8be9fdff
-    border = #bd93f9ff
-  '';
+  settings = {
+    main = {
+      font = "monospace:size=12";
+      dpi-aware = true;
+      terminal = "${pkgs.foot}/bin/foot";
+    };
+    colors = {
+      background = "#282a36ff";
+      text = "#f8f8f2ff";
+      selection = "#44475add";
+      selection-text = "#f8f8f2ff";
+      match = "#8be9fdff";
+      selection-match = "#8be9fdff";
+      border = "#bd93f9ff";
+    };
+  };
 };
+
 
 	wayland.windowManager.sway.config.menu = lib.mkForce "fuzzel";
 
