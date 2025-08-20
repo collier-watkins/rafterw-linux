@@ -33,11 +33,11 @@ in
 
  programs.rofi = {
     enable = true;
-    extraConfig = ''
-      theme: ${rofiTheme};
-      show-icons: true;
-      icon-theme: Papirus;
-    '';
+    extraConfig = {
+		show-icons = true;
+		icon-theme = "Papirus";
+		terminal = "foot";  # optional
+	};
   };
 
 
