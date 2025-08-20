@@ -1,7 +1,6 @@
 { config, pkgs, lib, ... }:
 let
  rofiTheme = pkgs.writeText "rofi-theme" ''
-    * {
    background: #282a36ff;
     foreground: #f8f8f2ff;
     selected-background: #44475add;
@@ -14,7 +13,7 @@ let
     columns: 4;
     show-icons: true;
     icon-theme: Papirus;
-    }'';
+    '';
 in
 {
 	imports = [
