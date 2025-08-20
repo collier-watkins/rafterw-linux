@@ -5,33 +5,40 @@ in
 {
 	# Add more laptop-specific dotfiles here
 
-	home.packages = with pkgs; [
-		nerd-fonts.fira-code
-		nerd-fonts.jetbrains-mono
-		noto-fonts-emoji
-		pamixer
-		brightnessctl
-		material-cursors
-		swww #Sway wallpaper swicher
-		adwaita-icon-theme
-		papirus-icon-theme
-	];
+ home.packages = with pkgs; [
+    fuzzel
+    papirus-icon-theme
+    nerd-fonts.fira-code
+    nerd-fonts.jetbrains-mono
+    noto-fonts-emoji
+    pamixer
+    brightnessctl
+    material-cursors
+    swww
+    adwaita-icon-theme
+  ];
 
-	home.sessionVariables = {
-		GTK_THEME = "Adwaita:dark";
-		QT_STYLE_OVERRIDE = "Adwaita-Dark";
-		QT_QPA_PLATFORMTHEME = "qt5ct";
-		XCURSOR_THEME = "Material-Cursors";
-		XDG_CURRENT_DESKTOP = "GNOME:GNOME";
-		XDG_THEME = "dark";
-		GTK_ICON_THEME = "Papirus";  # Add this
-	#	GDK_SCALE = "1";
-	#	GDK_DPI_SCALE = "1.0";
-	#	QT_SCALE_FACTOR = "1.0";
-	#	QT_AUTO_SCREEN_SCALE_FACTOR = "0";
-	#	XCURSOR_SIZE = "24";
-	#	WLR_DPI = "96";
-	};
+  # GTK and icon theme session variables
+  home.sessionVariables = {
+    GTK_THEME = "Adwaita:dark";
+    GTK_ICON_THEME = "Papirus";
+    QT_STYLE_OVERRIDE = "Adwaita-Dark";
+    QT_QPA_PLATFORMTHEME = "qt5ct";
+    XCURSOR_THEME = "Material-Cursors";
+    XDG_CURRENT_DESKTOP = "GNOME:GNOME";
+    XDG_THEME = "dark";
+  };
+
+  # Fuzzel configuration
+  home.file.".config/fuzzel/config" = {
+    text = ''
+      [launcher]
+      show-icons = true
+      icon-size = 32
+      desktop-files-path = /usr/share/applications/:~/.local/share/applications/
+      max-items = 50
+    '';
+  };
 
 	xsession.enable = true;
 
@@ -85,7 +92,7 @@ in
 			};
 			modifier = "Mod4";
 			terminal = "kitty";
-			menu = "wofi --show drun";
+			menu = "fuzzel --show drun";
 			
 			keybindings = let
 			modifier = config.wayland.windowManager.sway.config.modifier;
