@@ -301,13 +301,13 @@ in
 		DIR="$HOME/.config/sway/backgrounds"
 
 		# Start swww-daemon if not already running
-		pgrep -x swww-daemon >/dev/null || "$HOME/.nix-profile/bin/swww-daemon" &
+		pgrep -x swww-daemon >/dev/null || swww-daemon &
 		sleep 1
 
 		# Loop: pick random wallpaper every 5 minutes with fade
 		while true; do
 			IMG=$(find "$DIR" -type f \( -iname "*.jpg" -o -iname "*.png" \) | shuf -n1)
-			"$HOME/.nix-profile/bin/swww" img "$IMG" --transition-type fade --transition-duration 3
+			swww img "$IMG" --transition-type fade --transition-duration 3
 			sleep 300
 		done
 		'';
