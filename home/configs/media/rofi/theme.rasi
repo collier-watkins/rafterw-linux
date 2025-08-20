@@ -16,7 +16,7 @@ configuration {
     border-color: #89b4fa;
     accent-color: #89b4fa;
     urgent-color: #f38ba8;
-    selected-color: #b4befe;
+    selected-color: #ffffff;
 }
 
 window {
@@ -71,7 +71,7 @@ element {
 
 element selected {
     background-color: @selected-color;
-    text-color: @background-color;
+    text-color: #ffffff;
 }
 
 element urgent {
