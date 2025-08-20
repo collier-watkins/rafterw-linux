@@ -31,21 +31,26 @@ in
   };
 
 	# Fuzzel configuration
- home.file.".config/fuzzel/config" = {
-    text = ''
-		show-icons = true
-		icon-size = 32
-		desktop-files-path = /home/collier/.config/fuzzel/custom-apps:/run/current-system/sw/share/applications
-		max-items = 50
-		background-color = #1e1e2e
-		foreground-color = #cdd6f4
-		layout = grid
-		columns = 4
+programs.fuzzel = {
+  enable = true;
+  settings = ''
+    [main]
+    font = "monospace:size=12"
+    dpi-aware = yes
+    terminal = foot
 
-    '';
-  };
+    [colors]
+    background = #282a36ff
+    text = #f8f8f2ff
+    selection = #44475add
+    selection-text = #f8f8f2ff
+    match = #8be9fdff
+    selection-match = #8be9fdff
+    border = #bd93f9ff
+  '';
+};
 
-	wayland.windowManager.sway.config.menu = lib.mkForce "$HOME/.config/fuzzel/run-fuzzel.sh";
+	wayland.windowManager.sway.config.menu = lib.mkForce "fuzzel";
 
     # Symlink your repo directory of .desktop files
   #home.file.".local/share/fuzzel-apps".source = ../configs/media-edition-desktop-apps;
