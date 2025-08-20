@@ -14,6 +14,7 @@ in
 		material-cursors
 		swww #Sway wallpaper swicher
 		adwaita-icon-theme
+		papirus-icon-theme
 	];
 
 	home.sessionVariables = {
