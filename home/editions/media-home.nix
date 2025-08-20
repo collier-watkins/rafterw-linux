@@ -12,7 +12,7 @@
   # Symlink Papirus to ~/.icons for rofi
   home.file.".icons/Papirus".source = "${pkgs.papirus-icon-theme}/share/icons/Papirus";
   # Deploy your standalone theme file into ~/.config/rofi/theme.rasi
-  home.file.".config/rofi/theme.rasi".source = ../configs/media/rofi/theme.rasi;
+  home.file.".config/rofi/theme.rasi".source = ../configs/media/desktop-items;
 
   programs.rofi = {
     enable = true;
