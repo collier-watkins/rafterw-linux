@@ -31,7 +31,7 @@ in
   home.file.".config/rofi/config.rasi".source = rofiTheme;
 
 
-	wayland.windowManager.sway.config.menu = lib.mkForce "rofi -show drun -theme ${rofiTheme}";
+	wayland.windowManager.sway.config.menu = lib.mkForce "rofi -show drun";
 
     # Symlink your repo directory of .desktop files
   #home.file.".local/share/fuzzel-apps".source = ../configs/media-edition-desktop-apps;
