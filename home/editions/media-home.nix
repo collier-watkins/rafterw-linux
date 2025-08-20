@@ -16,11 +16,11 @@
   programs.rofi = {
     enable = true;
     theme = ''
-    * {
-      background-color: #282a36;
-      foreground-color: #f8f8f2;
-    }
-  '';
+      * {
+        background-color: #282a36;
+        foreground-color: #f8f8f2;
+      }
+    ''; # ✅ properly close here
     extraConfig = {
       show-icons = true;
       icon-theme = "Papirus";
