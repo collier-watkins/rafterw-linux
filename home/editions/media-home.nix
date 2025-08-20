@@ -1,13 +1,4 @@
 { config, pkgs, lib, ... }:
-
-let
-  rofiTheme = pkgs.writeText "rofi-theme.rasi" ''
-    * {
-      background-color: #282a36;
-      foreground-color: #f8f8f2;
-    }
-  '';
-in
 {
   imports = [
     ./dev-home.nix
@@ -20,6 +11,8 @@ in
 
   # Symlink Papirus to ~/.icons for rofi
   home.file.".icons/Papirus".source = "${pkgs.papirus-icon-theme}/share/icons/Papirus";
+  # Deploy your standalone theme file into ~/.config/rofi/theme.rasi
+  home.file.".config/rofi/theme.rasi".source = ../configs/rofi/theme.rasi;
 
   programs.rofi = {
     enable = true;
@@ -29,10 +22,10 @@ in
     };
   };
 
-  wayland.windowManager.sway.config.menu = lib.mkForce "rofi -show drun -theme ${rofiTheme}";
+  wayland.windowManager.sway.config.menu = lib.mkForce "rofi -show drun -theme ~/.config/rofi/theme.rasi";
 
   # Custom .desktop files
-  home.file.".local/share/applications/custom".source = ../configs/media-edition-desktop-apps;
+  home.file.".local/share/applications/custom".source = ../configs/media-edition/desktop-items;
 
   home.sessionVariables = {
     XDG_DATA_DIRS =

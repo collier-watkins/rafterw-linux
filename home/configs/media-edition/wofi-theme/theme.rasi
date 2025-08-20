@@ -1,0 +1,8 @@
+* {
+    background-color: #282a36;
+    foreground-color: #f8f8f2;
+    border-color: #44475a;
+    selected-background-color: #44475a;
+    selected-foreground-color: #ffffff;
+    font: "FiraCode Nerd Font 12";
+}
