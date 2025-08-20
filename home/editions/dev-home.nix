@@ -53,7 +53,7 @@
 		wrapperFeatures.gtk = true;
 		config = {
 			startup = [
-				{ command = "swaybg -i $(find /etc/nixos/backgrounds -type f | shuf -n1) -m fill"; }    #Random picture in that directory every time
+				{ command = "swaybg -i $(find ../../backgrounds -type f | shuf -n1) -m fill"; }    #Random picture in that directory every time
 			];
 			bars = [
 				{ command = "${pkgs.waybar}/bin/waybar"; }
@@ -287,29 +287,4 @@
 		'';
 	};
 
-	#Wallpaper switcher using swww, systemd, and a script
-  home.file.".config/sway/wallpaper.sh" = {
-    text = ''
-      #!/usr/bin/env bash
-      DIR="$HOME/../../backgrounds"
-      pgrep -x swww-daemon >/dev/null || "$HOME/.nix-profile/bin/swww-daemon" &
-      sleep 1
-      while true; do
-        IMG=$(find "$DIR" -type f \( -iname '*.jpg' -o -iname '*.png' \) | shuf -n1)
-        "$HOME/.nix-profile/bin/swww" img "$IMG" --transition-type fade --transition-duration 3
-        sleep 300
-      done
-    '';
-    executable = true;
-  };
-
-  systemd.user.services.swww-wallpaper = {
-    Unit.PartOf = [ "graphical-session.target" ];
-    Unit.After = [ "graphical-session.target" ];
-    Service.ExecStart = "%h/.config/sway/wallpaper.sh";
-    Service.Restart = "always";
-    Install.WantedBy = [ "graphical-session.target" ];
-  };
-
-  systemd.user.startServices = true;
 }
