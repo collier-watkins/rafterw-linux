@@ -303,7 +303,7 @@ in
 		while true; do
 			IMG=$(find -L "$DIR" -type f \( -iname "*.jpg" -o -iname "*.png" \) | shuf -n1)
 			swww img "$IMG" --transition-type fade --transition-duration 3
-			sleep 300 #5 minutes
+			sleep 3 #5 minutes
 		done
 		'';
 		executable = true;
