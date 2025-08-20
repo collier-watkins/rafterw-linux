@@ -9,6 +9,7 @@
 		pamixer
 		brightnessctl
 		material-cursors
+		swww #Sway wallpaper swicher
 	];
 
 	home.sessionVariables = {
@@ -285,4 +286,23 @@
 			}
 		'';
 	};
+
+	#Wallpaper switcher using swww, systemd, and a script
+	systemd.user.services.swww-wallpaper = {
+		Unit.PartOf = [ "graphical-session.target" ];
+		Unit.After = [ "graphical-session.target" ];
+		Service = {
+		ExecStart = "${pkgs.bash}/bin/bash -lc ''\
+			DIR=$HOME/../../backgrounds; \
+			pgrep -x swww-daemon >/dev/null || ${pkgs.swww}/bin/swww-daemon & sleep 1; \
+			while true; do \
+			IMG=$(find \"$DIR\" -type f \\( -iname '*.jpg' -o -iname '*.png' \\) | shuf -n1); \
+			${pkgs.swww}/bin/swww img \"$IMG\" --transition-type fade --transition-duration 3; \
+			sleep 300; \
+			done''";
+		Restart = "always";
+		};
+		Install.WantedBy = [ "graphical-session.target" ];
+	};
+  	systemd.user.startServices = true;
 }
