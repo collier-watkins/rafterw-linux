@@ -13,6 +13,8 @@ in
 		brightnessctl
 		material-cursors
 		swww #Sway wallpaper swicher
+		adwaita-icon-theme
+    	firacode
 	];
 
 	home.sessionVariables = {
@@ -298,6 +300,16 @@ in
 		icon-size = 24
 		'';
 	};
+
+	  # GTK theming for wofi and other GTK apps
+  home.file.".config/gtk-3.0/settings.ini" = {
+    text = ''
+      [Settings]
+      gtk-theme-name = Adwaita-dark
+      gtk-icon-theme-name = Papirus
+      gtk-font-name = "FiraCode 12"
+    '';
+  };
 
 	home.file.".config/sway/backgrounds".source = backgroundsDir;	#Symlink for backgrounds
 	# Background switcher script
