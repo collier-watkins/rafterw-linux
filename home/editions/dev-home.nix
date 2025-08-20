@@ -23,6 +23,7 @@ in
 		XCURSOR_THEME = "Material-Cursors";
 		XDG_CURRENT_DESKTOP = "GNOME:GNOME";
 		XDG_THEME = "dark";
+		GTK_ICON_THEME = "Papirus";  # Add this
 	#	GDK_SCALE = "1";
 	#	GDK_DPI_SCALE = "1.0";
 	#	QT_SCALE_FACTOR = "1.0";
@@ -299,15 +300,6 @@ in
 		icon-size = 24
 		'';
 	};
-
-	  # GTK theming for wofi and other GTK apps
-  home.file.".config/gtk-3.0/settings.ini" = {
-    text = ''
-      [Settings]
-      gtk-theme-name = Adwaita-dark
-      gtk-icon-theme-name = Papirus
-    '';
-  };
 
 	home.file.".config/sway/backgrounds".source = backgroundsDir;	#Symlink for backgrounds
 	# Background switcher script
