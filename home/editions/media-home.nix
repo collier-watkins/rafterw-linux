@@ -15,20 +15,21 @@
 
  programs.rofi = {
     enable = true;
+	theme = rofiTheme
     extraConfig = {
 		show-icons = true;
 		icon-theme = "Papirus";
 	};
   };
-  home.file.".config/rofi/config.rasi".source = ''
+  rofiTheme = pkgs.writeText "rofi-theme" ''
 * {
-  background-color: #282a36ff;
-  foreground-color: #ff00ffff;
+    background-color: #282a36;
+    foreground-color: #f8f8f2;
 }
 '';
 
 
-	wayland.windowManager.sway.config.menu = lib.mkForce "rofi -show drun";
+	wayland.windowManager.sway.config.menu = lib.mkForce "rofi -show drun -theme ${rofiTheme}";
 
     # Symlink your repo directory of .desktop files
   #home.file.".local/share/fuzzel-apps".source = ../configs/media-edition-desktop-apps;
