@@ -31,6 +31,9 @@
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 
+  # For possible better graphics driver. Working with: Intel 6th Gen i7-6700T with quicksync
+  hardware.graphics.extraPackages = with pkgs; [ vaapiIntel intel-media-driver ];
+
   # Bootloader.
   boot.loader.grub.enable = true;
   boot.loader.grub.device = "/dev/sda";

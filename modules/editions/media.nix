@@ -5,6 +5,8 @@
     ./dev.nix
   ];
 
+  networking.hostName = lib.mkForce "rafter-w-media";
+
   environment.systemPackages = with pkgs; [
     ungoogled-chromium
     vlc
