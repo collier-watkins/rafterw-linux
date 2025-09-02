@@ -87,6 +87,7 @@ in
 			in {
 				"${modifier}+Return" = "exec ${config.wayland.windowManager.sway.config.terminal}";
 				"${modifier}+space" = "exec ${config.wayland.windowManager.sway.config.menu}";
+        "${modifier}+Shift+space" = "exec wofi --show drun";
 				"${modifier}+Escape" = "exec swaylock";
 				"${modifier}+q" = "kill";
 				"${modifier}+v" = "splitv";
@@ -122,7 +123,7 @@ in
 				"${modifier}+8" = "workspace number 8";
 				"${modifier}+9" = "workspace number 9";
 				# Add modifier+Tab for next workspace
-  				"${modifier}+Tab" = "workspace next";
+  			"${modifier}+Tab" = "workspace next";
 				# (optional) Shift+Tab to go backwards
 				"${modifier}+Shift+Tab" = "workspace prev";
 

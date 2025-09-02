@@ -1,7 +1,7 @@
 [Desktop Entry]
 Name=ESPN
-Comment=Open ESPN in Ungoogled Chromium (App Mode)
-Exec=chromium --app=https://www.espn.com
+Comment=Open ESPN in Firefox kiosk
+Exec=firefox --kiosk https://www.espn.com/watch
 Icon=chromium
 Terminal=false
 Type=Application
