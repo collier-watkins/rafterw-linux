@@ -13,6 +13,17 @@
     fuzzel
     firefox
     android-tools
+    # Custom wrapper script for Chromium with VAAPI and Wayland flags
+    (writeShellScriptBin "chromium-vaapi" ''
+      ${chromium}/bin/chromium \
+        --enable-features=VaapiVideoDecoder,VaapiVideoEncoder \
+        --ignore-gpu-blocklist \
+        --enable-gpu-rasterization \
+        --enable-accelerated-video-decode \
+        --use-gl=egl \
+        --ozone-platform=wayland \
+        "$@"
+    '')
   ];
 
   users.users.media = {

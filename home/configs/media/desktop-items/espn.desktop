@@ -1,7 +1,7 @@
 [Desktop Entry]
 Name=ESPN
 Comment=Open ESPN in Ungoogled Chromium (App Mode)
-Exec=chromium --app=https://www.espn.com
+Exec=chromium-vaapi --app=https://www.espn.com/watch
 Icon=chromium
 Terminal=false
 Type=Application

@@ -91,6 +91,7 @@ in
 				"${modifier}+q" = "kill";
 				"${modifier}+v" = "splitv";
 				"${modifier}+n" = "splith";
+        "Menu" =  "exec ${config.wayland.windowManager.sway.config.menu}";
 
 				"XF86AudioRaiseVolume" = "exec pamixer -i 5";
 				"XF86AudioLowerVolume" = "exec pamixer -d 5";
@@ -122,7 +123,7 @@ in
 				"${modifier}+8" = "workspace number 8";
 				"${modifier}+9" = "workspace number 9";
 				# Add modifier+Tab for next workspace
-  				"${modifier}+Tab" = "workspace next";
+  			"${modifier}+Tab" = "workspace next";
 				# (optional) Shift+Tab to go backwards
 				"${modifier}+Shift+Tab" = "workspace prev";
 

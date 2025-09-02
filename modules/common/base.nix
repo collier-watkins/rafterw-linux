@@ -39,6 +39,7 @@
     environment.systemPackages = with pkgs; [
         cowsay
         networkmanager # Neccessary?
+        pciutils
         git
         wget
         curl

@@ -31,11 +31,49 @@
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 
-  # For possible better graphics driver. Working with: Intel 6th Gen i7-6700T with quicksync
-  hardware.graphics.extraPackages = with pkgs; [ vaapiIntel intel-media-driver ];
+##### Graphics code for flickering issue on videos
+
+# For possible better graphics driver. Working with: Intel 6th Gen i7-6700T with quicksync
+  # Enable OpenGL and hardware acceleration
+  hardware.graphics = {
+    enable = true;
+    enable32Bit = true; # For compatibility with 32-bit apps
+    extraPackages = with pkgs; [
+      intel-media-driver # For Skylake (libva-intel-driver for older GPUs)
+      vaapiIntel # VAAPI for Intel GPU
+      vaapiVdpau # Fallback for some apps
+      libvdpau-va-gl # VDPAU to VAAPI bridge
+    ];
+  };
+
+  # Ensure Intel GPU drivers are loaded
+  services.xserver.videoDrivers = [ "intel" ];
+
+  # Optional: Explicitly enable VAAPI in environment
+  environment.variables = {
+    LIBVA_DRIVER_NAME = "iHD"; # Use intel-media-driver for Skylake
+  };
+
+  environment.systemPackages = with pkgs; [
+    libva-utils # For vainfo to verify VAAPI
+    intel-gpu-tools # For monitoring GPU usage
+    alsa-utils # For speaker-test
+  ];
+
+  # For fixing graphics blackouts on streams
+  boot.kernelParams = [
+    "i915.enable_psr=0" # Disable panel self-refresh (fixes blackouts)
+    "i915.fastboot=1"   # Faster modesetting, reduces glitches
+    "i915.enable_guc=2"  # Enable GuC firmware for better performance
+  ];
 
   # Bootloader.
   boot.loader.grub.enable = true;
   boot.loader.grub.device = "/dev/sda";
   boot.loader.grub.useOSProber = true;
+  
+  #Fix for popping speaker noise
+  boot.extraModprobeConfig = ''
+    options snd_hda_intel power_save=0 power_save_controller=N
+  '';
 }

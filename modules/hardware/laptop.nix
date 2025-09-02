@@ -34,5 +34,11 @@
     fsType = "ext4";
   }; 
   
+  # Put in laptop and media?
+  hardware.graphics = {
+    enable = true;
+  };
+  
+ 
 }
 
