@@ -92,6 +92,7 @@ in
 				"${modifier}+q" = "kill";
 				"${modifier}+v" = "splitv";
 				"${modifier}+n" = "splith";
+        "Menu" =  "exec ${config.wayland.windowManager.sway.config.menu}";
 
 				"XF86AudioRaiseVolume" = "exec pamixer -i 5";
 				"XF86AudioLowerVolume" = "exec pamixer -d 5";

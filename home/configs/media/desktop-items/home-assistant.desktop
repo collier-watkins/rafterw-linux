@@ -1,7 +1,7 @@
 [Desktop Entry]
 Name=Home Assistant
 Comment=Open ha.rafterw.io in Ungoogled Chromium (App Mode)
-Exec=chromium --app=https://ha.rafterw.io
+Exec=chromium --force-dark-mode --enable-features=WebUIDarkMode --app=https://ha.rafterw.io
 Icon=chromium
 Terminal=false
 Type=Application

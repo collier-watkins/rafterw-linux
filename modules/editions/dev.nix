@@ -37,11 +37,5 @@
   };
 
   programs.thunar.enable = true;
-
-  # Put in laptop and media?
-  hardware.graphics = {
-    enable = true;
-  };
-  
-  
+ 
 }

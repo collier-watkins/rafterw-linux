@@ -12,6 +12,13 @@
     kitty
   ];
 
+
+  # GTK and icon theme session variables
+ # home.sessionVariables = lib.mkForce {
+ #   XCURSOR_THEME = "Material-Cursors";
+ #   XCURSOR_SIZE = "128";
+ # };
+
   # Symlink Papirus to ~/.icons for rofi
   home.file.".icons/Papirus".source = "${pkgs.papirus-icon-theme}/share/icons/Papirus";
   # Deploy your standalone theme file into ~/.config/rofi/theme.rasi
@@ -41,6 +48,7 @@
   };
 
   wayland.windowManager.sway.config.menu = lib.mkForce "rofi -show drun -theme ~/.config/rofi/theme.rasi";
+  wayland.windowManager.sway.config.output = lib.mkForce {"*" = { scale = "2.0"; };};
 
   # Custom .desktop files in applications/ subdirectory
   home.file.".local/share/rofi/desktop-items/applications".source = ../configs/media/desktop-items;
