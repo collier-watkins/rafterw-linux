@@ -9,6 +9,7 @@
     papirus-icon-theme
     desktop-file-utils
     mlocate
+    kitty
   ];
 
 

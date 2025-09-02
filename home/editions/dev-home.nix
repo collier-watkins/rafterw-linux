@@ -272,7 +272,7 @@ in
 			#custom-launcher {
 				padding: 0 10px;
 				margin: 5px 0;
-				border-radius: 5px;
+				border-radius: 10px;
 			}
 			#custom-power {
 				font-size: 24px;
