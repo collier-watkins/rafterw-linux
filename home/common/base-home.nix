@@ -44,6 +44,8 @@
                 [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
             fi
 
+            export XCURSOR_SIZE=128
+
             rebuild() {
                 sudo nixos-rebuild switch --flake /etc/nixos#$1
             }
