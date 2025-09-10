@@ -37,6 +37,13 @@
             plugins = [ "git" ];
         };
         initContent = ''
+            export XCURSOR_SIZE=128
+            # Run MOTD script on interactive login shells
+            if [[ -o login ]]; then
+              echo "Howdy there"
+              /etc/motd-script.sh
+            fi
+
             # Conditionally source Powerlevel10k configuration based on terminal type
             if [[ -n "$XDG_VTNR" && "$XDG_VTNR" -le 6 && "$TERM" == "linux" ]]; then
                 [[ -f ~/.p10k.zsh.tty ]] && source ~/.p10k.zsh.tty
@@ -44,9 +51,7 @@
                 [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
             fi
 
-            export XCURSOR_SIZE=128
-
-            rebuild() {
+           rebuild() {
                 sudo nixos-rebuild switch --flake /etc/nixos#$1
             }
         '';

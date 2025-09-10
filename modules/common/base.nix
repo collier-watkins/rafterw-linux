@@ -26,7 +26,13 @@
     # Networking
     networking.networkmanager.enable = true;
     networking.hostName = "rafter-w-os";
-    services.openssh.enable = true;
+    services.openssh = {
+      enable = true;
+      settings = {
+          PermitRootLogin = "no";
+          PrintMotd = true;
+      };
+    };
 
     # Localization
     time.timeZone = "America/Chicago";
@@ -43,6 +49,7 @@
         git
         wget
         curl
+        unzip
         gnugrep
         coreutils
         zsh
@@ -73,4 +80,37 @@
           (_)       (_)    
         \e[0m
     '';
+   # Enable Docker if not already enabled
+  virtualisation.docker.enable = true;
+
+      # Create the MOTD script
+  environment.etc."motd-script.sh" = {
+    source = pkgs.writeScript "motd-script" ''
+      #!/bin/sh
+      # Green ANSI color code
+      GREEN="\033[0;32m"
+      RESET="\033[0m"
+
+      # ASCII Art in green
+      echo -e "$GREEN"
+      echo "  ____ ___ _     ___  ____  "
+      echo " / ___|_ _| |   / _ \/ ___| "
+      echo " \___ \| || |  | | | \___ \ "
+      echo "  ___) | || |__| |_| |___) |"
+      echo " |____/___|_____\___/|____/ "
+      echo -e "$RESET"
+
+      echo "Welcome to NixOS!"
+
+      # Last login information
+      echo "Last login:"
+      ${pkgs.utillinux}/bin/last -1 $USER | ${pkgs.coreutils}/bin/head -n 1
+
+      # Docker containers
+      echo -e "\nRunning Docker Containers:"
+      ${pkgs.docker}/bin/docker ps
+    '';
+    mode = "0755"; # Ensure the script is executable
+  };
+
 }

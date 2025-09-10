@@ -48,6 +48,7 @@
       hardwareProfiles = {
         laptop = ./modules/hardware/laptop.nix;
         lenovo = ./modules/hardware/lenovo.nix;
+        vm     = ./modules/hardware/vm.nix;
       };
 
       mkConfigs =
