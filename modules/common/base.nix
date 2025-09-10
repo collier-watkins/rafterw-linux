@@ -87,28 +87,28 @@
   environment.etc."motd-script.sh" = {
     source = pkgs.writeScript "motd-script" ''
       #!/bin/sh
-      # Green ANSI color code
       GREEN="\033[0;32m"
+      BLUE="\033[0;34m"
+      GRAY="\033[0;90m"
       RESET="\033[0m"
 
       # ASCII Art in green
-      echo -e "$GREEN"
-      echo "  ____ ___ _     ___  ____  "
-      echo " / ___|_ _| |   / _ \/ ___| "
-      echo " \___ \| || |  | | | \___ \ "
-      echo "  ___) | || |__| |_| |___) |"
-      echo " |____/___|_____\___/|____/ "
-      echo -e "$RESET"
+      echo -e "$GRAY"
+      echo "   _      _      _ " 
+      echo "  (_)   _(_)_   (_)  "
+      echo "  (_)  (_) (_)  (_)  "
+      echo "  (_) (_) _ (_) (_)  "
+      echo "  (_)   _(_)_   (_)  "
+      echo "  (_)  (_) (_)  (_)  "
+      echo "  (_)_(_)   (_)_(_)  "
+      echo "    (_)       (_)    "
 
-      echo "Welcome to NixOS!"
-
-      # Last login information
-      echo "Last login:"
-      ${pkgs.utillinux}/bin/last -1 $USER | ${pkgs.coreutils}/bin/head -n 1
-
+      echo -e "$BLUE"
       # Docker containers
       echo -e "\nRunning Docker Containers:"
-      ${pkgs.docker}/bin/docker ps
+      ${pkgs.docker}/bin/docker ps --format "table {{.Names}}\t{{.RunningFor}}\t{{.Status}}"
+      echo -e "$RESET"
+      cowsay "Howdy partner"
     '';
     mode = "0755"; # Ensure the script is executable
   };

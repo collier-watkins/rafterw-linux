@@ -40,7 +40,6 @@
             export XCURSOR_SIZE=128
             # Run MOTD script on interactive login shells
             if [[ -o login ]]; then
-              echo "Howdy there"
               /etc/motd-script.sh
             fi
 
